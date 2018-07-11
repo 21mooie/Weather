@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:dev": "node_modules/.bin/webpack-dev-server --mode development --inline",
     "dev": "webpack --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --config webpack-production.config.js -p"
   },
   "repository": {
     "type": "git",
@@ -26,6 +26,7 @@
     "jshint": "^2.9.5",
     "jshint-loader": "^0.8.4",
     "node-libs-browser": "^2.1.0",
+    "strip-loader": "^0.1.2",
     "webpack-cli": "^3.0.8",
     "webpack-dev-server": "^3.1.4"
   },
