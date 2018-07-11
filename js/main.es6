@@ -1,7 +1,8 @@
 /*jslint browser:true */
-require('./login')
+// require('./login')
+import {login} from './login'
 'use strict';
-
+login('admin','radical');
 var weatherConditions = new XMLHttpRequest();
 var weatherForecast = new XMLHttpRequest();
 var weatherLocation = new XMLHttpRequest();
