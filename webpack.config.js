@@ -5,6 +5,17 @@ module.exports = {
     },
     module:{
         rules:[
+            // {
+            //     enforce:'pre',
+            //     test: /\.es6$/,
+            //     exclude: /node_modules/,
+            //     use:[
+            //         {
+            //             loader: "jshint-loader"
+            //         }
+            //     ]
+                
+            // },
             {
                 test: /\.es6$/,
                 exclude: /node_modules/,
@@ -15,6 +26,7 @@ module.exports = {
                 ]
                 
             }
+            
         ]
     },
     resolve:{
