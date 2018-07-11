@@ -1,1 +1,133 @@
-!function(e){var t={};function n(r){if(t[r])return t[r].exports;var o=t[r]={i:r,l:!1,exports:{}};return e[r].call(o.exports,o,o.exports,n),o.l=!0,o.exports}n.m=e,n.c=t,n.d=function(e,t,r){n.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:r})},n.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},n.t=function(e,t){if(1&t&&(e=n(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var r=Object.create(null);if(n.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var o in e)n.d(r,o,function(t){return e[t]}.bind(null,o));return r},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},n.p="",n(n.s=0)}([function(e,t,n){"use strict";var r,o,s,p=new XMLHttpRequest,c=new XMLHttpRequest,i=new XMLHttpRequest,a=new Date,u=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];p.onload=function(){200===p.status&&(r=JSON.parse(p.responseText),console.log(r),document.getElementById("weather").innerHTML=r.response[0].periods[0].weather,document.getElementById("temperature").innerHTML=r.response[0].periods[0].avgTempF+"˚")},i.responseType="text",i.onload=function(){200===i.status&&(s=JSON.parse(i.responseText),document.getElementById("location").innerHTML=s.response[0].place.name+", "+s.response[0].place.state)},c.onload=function(){if(200===c.status){o=JSON.parse(c.responseText);for(let e=1;e<4;e++)document.getElementById("r"+e+"c1").innerHTML=u[a.getDay()+e],document.getElementById("r"+e+"c2").src="../AerisIcons/"+o.response[0].periods[e].icon,document.getElementById("r"+e+"c3").innerHTML=o.response[0].periods[1].minTempF+"˚",document.getElementById("r"+e+"c4").innerHTML=o.response[0].periods[1].maxTempF+"˚"}},function(){var e=document.getElementById("zip").value;""===e&&(e="07205");var t="https://api.aerisapi.com//forecasts/"+e+"?client_id=NcHv0PCpZs4z1ewF6EmQB&client_secret=Inor4mEIDxWEF3bE9TFRv6xcGvoptNKEhB4v0Gze",n="https://api.aerisapi.com//places/closest?p="+e+"&client_id=NcHv0PCpZs4z1ewF6EmQB&client_secret=Inor4mEIDxWEF3bE9TFRv6xcGvoptNKEhB4v0Gze",r="https://api.aerisapi.com//forecasts/"+e+"?from=today&to=today&client_id=NcHv0PCpZs4z1ewF6EmQB&client_secret=Inor4mEIDxWEF3bE9TFRv6xcGvoptNKEhB4v0Gze";p.open("GET",r,!0),p.responseType="text",p.send(null),c.open("GET",t,!0),c.responseType="text",c.send(),i.open("GET",n,!0),i.responseType="text",i.send()}()}]);
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./js/login.js":
+/*!*********************!*\
+  !*** ./js/login.js ***!
+  \*********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("console.log('login loaded');\n\n//# sourceURL=webpack:///./js/login.js?");
+
+/***/ }),
+
+/***/ "./js/main.js":
+/*!********************!*\
+  !*** ./js/main.js ***!
+  \********************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("/*jslint browser:true */\n__webpack_require__(/*! ./login */ \"./js/login.js\")\n'use strict';\n\nvar weatherConditions = new XMLHttpRequest();\nvar weatherForecast = new XMLHttpRequest();\nvar weatherLocation = new XMLHttpRequest();\nvar cObj;\nvar fObj;\nvar lObj;\nvar d = new Date();\nvar days = [\"Sunday\", \"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", \"Friday\", \"Saturday\"];\n\n\n\n\n\nweatherConditions.onload = function() {\n    if (weatherConditions.status === 200){\n        cObj = JSON.parse(weatherConditions.responseText); \n        console.log(cObj);\n        document.getElementById('weather').innerHTML = cObj.response[\"0\"].periods[\"0\"].weather\n        document.getElementById('temperature').innerHTML = cObj.response[\"0\"].periods[\"0\"].avgTempF + degreeSymbol();\n\n    } //end if\n}; //end function\n\n\n\n\n\n\nweatherLocation.responseType = 'text';\nweatherLocation.onload = function(){\n    if (weatherLocation.status === 200){\n        lObj = JSON.parse(weatherLocation.responseText);\n//        console.log(lObj);\n        document.getElementById('location').innerHTML = lObj.response[0].place.name + ', ' + lObj.response[0].place.state\n    }\n}\n\n\n\n\n\n\nweatherForecast.onload = function() {\nif (weatherForecast.status === 200){\n\tfObj = JSON.parse(weatherForecast.responseText);\n//\tconsole.log(fObj);\n    for (let i=1;i<4;i++){\n        document.getElementById('r'+i+'c1').innerHTML = days[d.getDay()+i];\n        document.getElementById('r'+i+'c2').src = '../AerisIcons/'+fObj.response[\"0\"].periods[i].icon;\n        document.getElementById('r'+i+'c3').innerHTML = fObj.response[\"0\"].periods[1].minTempF + degreeSymbol();\n        document.getElementById('r'+i+'c4').innerHTML = fObj.response[\"0\"].periods[1].maxTempF + degreeSymbol();\n    }\n    \n\t\n} //end if\n}; //end function\nloadWeather();\n\nfunction degreeSymbol(){\n    return '˚';\n}\n\nfunction loadWeather(){\n    \n    var zip=document.getElementById('zip').value;\n    if (zip==='') zip = '07205';\n    var forecastPath = 'https://api.aerisapi.com//forecasts/'+zip+'?client_id=NcHv0PCpZs4z1ewF6EmQB&client_secret=Inor4mEIDxWEF3bE9TFRv6xcGvoptNKEhB4v0Gze';\n    \n    var locationPath = 'https://api.aerisapi.com//places/closest?p='+zip+'&client_id=NcHv0PCpZs4z1ewF6EmQB&client_secret=Inor4mEIDxWEF3bE9TFRv6xcGvoptNKEhB4v0Gze';\n    \n    var conditionsPath = 'https://api.aerisapi.com//forecasts/'+zip+'?from=today&to=today&client_id=NcHv0PCpZs4z1ewF6EmQB&client_secret=Inor4mEIDxWEF3bE9TFRv6xcGvoptNKEhB4v0Gze';\n    \n\n    \n    // GET THE CONDITIONS\nweatherConditions.open('GET', conditionsPath,true);\nweatherConditions.responseType = 'text';\nweatherConditions.send(null);\n    \n        // GET THE FORECARST    \nweatherForecast.open('GET', forecastPath, true);\nweatherForecast.responseType = 'text'; \nweatherForecast.send();\n    \n    //Location\nweatherLocation.open('GET',locationPath, true)\nweatherLocation.responseType = 'text';\nweatherLocation.send();\n\n    \n    \n}\n\n\n//# sourceURL=webpack:///./js/main.js?");
+
+/***/ }),
+
+/***/ "./js/utils.js":
+/*!*********************!*\
+  !*** ./js/utils.js ***!
+  \*********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("console.log('here is utils')\n\n//# sourceURL=webpack:///./js/utils.js?");
+
+/***/ }),
+
+/***/ 0:
+/*!****************************************!*\
+  !*** multi ./js/utils.js ./js/main.js ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("__webpack_require__(/*! ./js/utils.js */\"./js/utils.js\");\nmodule.exports = __webpack_require__(/*! ./js/main.js */\"./js/main.js\");\n\n\n//# sourceURL=webpack:///multi_./js/utils.js_./js/main.js?");
+
+/***/ })
+
+/******/ });
