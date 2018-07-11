@@ -4,15 +4,20 @@ module.exports = {
         filename: "bundle.js"
     },
     module:{
-        loaders:[
+        rules:[
             {
                 test: /\.es6$/,
                 exclude: /node_modules/,
-                loader: "babel-loader"
+                use:[
+                    {
+                        loader: "babel-loader"
+                    }
+                ]
+                
             }
         ]
     },
     resolve:{
-        extentions: ['','.js','.es6']
+        extensions: ['.js','.es6']
     }
 }
